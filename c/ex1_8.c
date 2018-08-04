@@ -8,9 +8,13 @@ main() {
     int c = 0;
 
     while ((c = getchar()) != EOF) {
-        if (c == ' ') { ++spaces; }
-        if (c == '\t') { ++tabs; }
-        if (c == '\n') { ++lines; }
+        if (c == ' ') { 
+            ++spaces; 
+        } else if (c == '\t') { 
+            ++tabs; 
+        } else if (c == '\n') { 
+            ++lines; 
+        }
     }
 
     printf("spaces = %d\ntabs = %d\nlines = %d (actually %d)",
