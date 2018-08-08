@@ -35,13 +35,8 @@ main() {
 
     for (i = max; i >= 0; --i) {
         for (j = 0; j < 10; j++) {
-            if (ndigit[j] > i) {
-                printf(COLUMN_CHAR);
-                if (j != 9) { printf("\t"); }
-            } else {
-                printf(" ");
-                if (j != 9) { printf("\t"); }
-            }
+            printf(ndigit[j] > i ? COLUMN_CHAR : " ");
+            if (j != 9) { printf("\t"); }
         }
         printf("\n");
     }
