@@ -1,20 +1,21 @@
-//: Playground - noun: a place where people can play
+var first: Int8
+var second: UInt8
 
-import Cocoa
+first = Int8.min
+second = UInt8.max
 
-var a: Int8
-var b: UInt8
+print(first)
+print(second)
 
-a = Int8.max
-b = UInt8.max
 
-print(a, b)
+var intFirst = 100
+var intSecond: Int = 200
 
-var c = 9
-var d: Int = 3
+var intTmp: Int
 
-var tmp = c
-c = d
-d = tmp
+intTmp = intFirst
+intFirst = intSecond
+intSecond = intTmp
 
-print("c =", c, "\nd =", d)
+print("intFirst = \(intFirst)")
+print("intSecond = \(intSecond)")
