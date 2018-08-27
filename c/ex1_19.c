@@ -25,6 +25,7 @@ int main() {
         }
     }
 
+    return 0;
 }
 
 void reverse(char s[], int len) {

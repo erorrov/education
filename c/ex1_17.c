@@ -14,6 +14,8 @@ int main() {
             printf("%s", line);
         }
     }
+    
+    return 0;
 }
 
 int readline(char s[], int maxline) {

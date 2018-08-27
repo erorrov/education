@@ -43,5 +43,7 @@ int main() {
             i = 0;
         }
     }
+    
+    return 0;
 }
 
