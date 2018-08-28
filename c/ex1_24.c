@@ -68,7 +68,7 @@ int main() {
                 break;
                 
             case ']':
-                if (bracket <= 0 && bracketLineFirst == -1) { bracketLineFirst = bracket; }
+                if (bracket <= 0 && bracketLineFirst == -1) { bracketLineFirst = line; }
                 --bracket;
                 break;
                 
