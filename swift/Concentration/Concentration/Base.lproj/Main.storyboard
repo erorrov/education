@@ -133,12 +133,25 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ghF-Nd-qrR"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1g-GC-Vhu">
+                                <rect key="frame" x="20" y="713" width="374" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="New Game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startNewGame" destination="BYZ-38-t0r" eventType="touchUpInside" id="0PN-gz-xyY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="oxx-a1-wms" id="OjC-GA-Zha"/>
+                        <outlet property="newGameButton" destination="g1g-GC-Vhu" id="4E2-yJ-2Ov"/>
                         <outletCollection property="cardButtons" destination="2gx-AX-rKo" collectionClass="NSMutableArray" id="dcA-ma-m9t"/>
                         <outletCollection property="cardButtons" destination="8Mv-BJ-fyC" collectionClass="NSMutableArray" id="dRR-Nt-8co"/>
                         <outletCollection property="cardButtons" destination="6P7-JB-VOL" collectionClass="NSMutableArray" id="hFl-8U-q0u"/>

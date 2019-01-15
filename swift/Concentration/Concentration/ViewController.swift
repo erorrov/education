@@ -13,11 +13,28 @@ class ViewController: UIViewController {
     lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
     @IBOutlet var cardButtons: [UIButton]!
     @IBOutlet weak var flipCountLabel: UILabel!
+    @IBOutlet weak var newGameButton: UIButton!
+    var emojiChoices = [String]()
+    var emoji = [Int:String]()
     
     var flipCount = 0 {
         didSet {
             flipCountLabel.text = "Flips: \(flipCount)"
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        startNewGame()
+    }
+    
+    @IBAction func startNewGame() {
+        emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
+        emoji = [Int:String]()
+        game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+        flipCount = 0
+        newGameButton.isHidden = true
+        updateViewFromModel()
     }
     
     @IBAction func touchCard(_ sender: UIButton) {
@@ -42,10 +59,11 @@ class ViewController: UIViewController {
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
             }
         }
+        
+        if game.cards.allSatisfy({$0.isMatched}) {
+            newGameButton.isHidden = false
+        }
     }
-    
-    var emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
-    var emoji = [Int:String]()
     
     func emoji(for card: Card) -> String {
         if emoji[card.identifier] == nil, emojiChoices.count > 0 {
@@ -54,5 +72,4 @@ class ViewController: UIViewController {
         }
         return emoji[card.identifier] ?? "?"
     }
-    
 }
