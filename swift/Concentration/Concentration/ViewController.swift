@@ -29,7 +29,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startNewGame() {
-        emojiChoices = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
+        var themes = [String:[String]]()
+        themes["things"] = ["💻", "📱", "⌚️", "⌨️", "🖥", "📺", "🖨", "📷", "💾"]
+        themes["animals"] = ["🐶", "🐹", "🐵", "🐼", "🐧", "🐔", "🐸", "🐤", "🐷"]
+        themes["sport"] = ["⚽️", "🏀", "🏈", "⚾️", "🥎", "🎾", "🏐", "🏉", "🎱"]
+        themes["faces"] = ["😍", "😜", "😎", "😳", "😂", "😏", "😡", "😴", "😱"]
+        themes["food"] = ["🍏", "🍎", "🍔", "🍕", "🍩", "🧀", "🍆", "🍓", "🥐"]
+        themes["flags"] = ["🇯🇵", "🇺🇸", "🇷🇺", "🇰🇿", "🇺🇦", "🇧🇾", "🇦🇿", "🇩🇪", "🇨🇦"]
+        emojiChoices = themes[Array(themes.keys).randomElement()!]! //looks bad
         emoji = [Int:String]()
         game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
         flipCount = 0
