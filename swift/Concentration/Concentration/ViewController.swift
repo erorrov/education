@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var newGameButton: UIButton!
     var emojiChoices = [String]()
     var emoji = [Int:String]()
+    var themes = [String:[String]]()
     
     var flipCount = 0 {
         didSet {
@@ -25,17 +26,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startNewGame()
-    }
-    
-    @IBAction func startNewGame() {
-        var themes = [String:[String]]()
-        themes["things"] = ["💻", "📱", "⌚️", "⌨️", "🖥", "📺", "🖨", "📷", "💾"]
+        
+        themes["things"] =  ["💻", "📱", "⌚️", "⌨️", "🖥", "📺", "🖨", "📷", "💾"]
         themes["animals"] = ["🐶", "🐹", "🐵", "🐼", "🐧", "🐔", "🐸", "🐤", "🐷"]
         themes["sport"] = ["⚽️", "🏀", "🏈", "⚾️", "🥎", "🎾", "🏐", "🏉", "🎱"]
         themes["faces"] = ["😍", "😜", "😎", "😳", "😂", "😏", "😡", "😴", "😱"]
         themes["food"] = ["🍏", "🍎", "🍔", "🍕", "🍩", "🧀", "🍆", "🍓", "🥐"]
         themes["flags"] = ["🇯🇵", "🇺🇸", "🇷🇺", "🇰🇿", "🇺🇦", "🇧🇾", "🇦🇿", "🇩🇪", "🇨🇦"]
+        
+        startNewGame()
+    }
+    
+    @IBAction func startNewGame() {
         emojiChoices = themes[Array(themes.keys).randomElement()!]! //looks bad
         emoji = [Int:String]()
         game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
