@@ -28,7 +28,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxx-a1-wms">
-                                <rect key="frame" x="71" y="776" width="273" height="86"/>
+                                <rect key="frame" x="71" y="814" width="273" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -133,8 +133,15 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ghF-Nd-qrR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWK-WL-gyD">
+                                <rect key="frame" x="71" y="764" width="273" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1g-GC-Vhu">
-                                <rect key="frame" x="20" y="713" width="374" height="55"/>
+                                <rect key="frame" x="20" y="701" width="374" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -152,6 +159,7 @@
                     <connections>
                         <outlet property="flipCountLabel" destination="oxx-a1-wms" id="OjC-GA-Zha"/>
                         <outlet property="newGameButton" destination="g1g-GC-Vhu" id="4E2-yJ-2Ov"/>
+                        <outlet property="scoreLabel" destination="fWK-WL-gyD" id="Y22-1k-pER"/>
                         <outletCollection property="cardButtons" destination="2gx-AX-rKo" collectionClass="NSMutableArray" id="dcA-ma-m9t"/>
                         <outletCollection property="cardButtons" destination="8Mv-BJ-fyC" collectionClass="NSMutableArray" id="dRR-Nt-8co"/>
                         <outletCollection property="cardButtons" destination="6P7-JB-VOL" collectionClass="NSMutableArray" id="hFl-8U-q0u"/>
