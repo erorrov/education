@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-main() {
+int main() {
     printf("\nhello\n");
     printf("\rhello\r");
     printf("\thello\t");
@@ -9,4 +9,6 @@ main() {
     printf("\vhello\v");
     printf("\fhello\f");
     printf("\rhello\r");
+
+    return 0;
 }
