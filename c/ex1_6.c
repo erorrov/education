@@ -1,5 +1,6 @@
 #include <stdio.h>
 
-main() {
-    printf("getchar() != EOF is %s", getchar() != EOF ? "true" : "false");
+int main() {
+	printf("getchar() != EOF is %s\n", getchar() != EOF ? "true" : "false");
+	return 0;
 }
