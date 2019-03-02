@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-main() {
-    int c = 0;
-    int lastChar = NULL;
+int main() {
+    int c;
+    int last = 0;
 
-    while ((c = getchar()) != EOF) {
-        if (!(lastChar == ' ' && c == ' ')) {
+    while ((c = getchar()) != EOF)
+        if ((c == ' ' && last != ' ') || c != ' ')  {
             putchar(c);
+            last = c;
         }
 
-        lastChar = c;
-    }
+    return 0;
 }
