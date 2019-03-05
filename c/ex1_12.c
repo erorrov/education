@@ -1,21 +1,21 @@
 #include <stdio.h>
 
-main() {
-    int c = 0;
-    int state = 0;
-    int lastChar = NULL;
+#define IN 1
+#define OUT 0
 
-    while ((c = getchar()) != EOF) {
-        if (state == 1 && c == ' ') {
-            putchar('\n');
-            state = 0;
-        } else if (lastChar == NULL || lastChar == ' ' && c == ' ') {
-            state = 0;
+int main() {
+    int c;
+    int state = OUT;
+
+    while ((c = getchar()) != EOF)
+        if (c == ' ' || c == '\n' || c == '\t') {
+            if (state == IN) 
+                putchar('\n');
+            state = OUT;
         } else {
-            state = 1;
             putchar(c);
+            state = IN;
         }
 
-        lastChar = c;
-    }
+    return 0;
 }
