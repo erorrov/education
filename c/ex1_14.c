@@ -1,54 +1,35 @@
 #include <stdio.h>
 
-#define ALPHABET 127
-#define COLUMN_CHAR "█"
+int main() {
+    int c, i, j;
+    int ascii[128];
 
-main() {
-    int c;
-
-    int counters[ALPHABET];
-    int symbols[ALPHABET];
-    int used = 0;
-    int position = -1;
-
-    for (int i = 0; i < ALPHABET; ++i) {
-        counters[i] = 0;
-        symbols[i] = 0;
-    }
+    for (i = 0; i < 128; ++i)
+        ascii[i] = 0;
 
     while ((c = getchar()) != EOF) {
-        position = -1;
-        for (int i = 0; i <= used; ++i) {
-            if (symbols[i] == c) {
-                position = i;
+        if (c < 128)
+            ++ascii[c];
+    }
+
+    for (i = 0; i < 128; ++i) {
+        if (ascii[i] > 0) {
+            if (i == '\n')
+                printf("\\n ");
+            else if (i == '\t')
+                printf("\\t ");
+            else if (i == ' ')
+                printf(" ␣ ");
+            else
+                printf("%2c ", i);
+
+            for (j = 0; j < ascii[i]; ++j) {
+                printf("█");
             }
-        }
 
-        if (position == -1) {
-            symbols[used] = c;
-            position = used;
-            ++used;
+            printf("\n");
         }
-
-        ++counters[position];
     }
 
-    for (int i = 0; i < used; ++i) {
-        if (symbols[i] == -1 && counters[i] == -1)
-            break;
-
-        if (symbols[i] == '\n')
-            printf("%-2s ", "\\n");
-        else if (symbols[i] == '\t')
-            printf("%-2s ", "\\t");
-        else
-            printf("%-2c ", symbols[i]);
-
-
-        for (int j = 0; j != counters[i]; ++j) {
-            printf(COLUMN_CHAR);
-        }
-
-        printf("\n");
-    }
+    return 0;
 }
