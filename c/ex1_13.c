@@ -1,48 +1,51 @@
 #include <stdio.h>
 
-#define COLUMN_CHAR "█"
+#define MAX_WORD_LEN 20
 
-main() {
+int main() {
     int c, i, j;
-    int ndigit[10];
+    int len = 0;
+    int max = 0;
+    int nwords[MAX_WORD_LEN+1];
 
-    for (i = 0; i < 10; ++i) {
-        ndigit[i] = 0;
-    }
+    for (i = 0; i < MAX_WORD_LEN; ++i)
+        nwords[i] = 0;
 
     while ((c = getchar()) != EOF) {
-        if (c >= '0' && c <= '9') {
-            ++ndigit[c - '0'];
+        if (c == ' ' || c == '\n' || c == '\t') {
+            nwords[len] += (len > 0 && len < MAX_WORD_LEN) ? 1 : 0;
+            max = (max < len && len < MAX_WORD_LEN) ? len : max;
+            len = 0;
+        } else {
+            ++len;
         }
     }
 
     //horizontal
-    for (i = 0; i < 10; ++i) {
-        printf("%2d: ", i);
-        for (j = 0; j < ndigit[i]; ++j) {
-            printf(COLUMN_CHAR);
-        }
-        printf("\n");
+    for (i = 1; i <= max; ++i) {
+        printf("%02d: ", i);
+
+        for (j = 0; j < nwords[i]; ++j)
+            printf("█");
+
+        putchar('\n');
     }
 
     //vertical
-    int max = 0;
-    for (i = 0; i < 10; ++i) {
-        if (ndigit[i] > max) {
-            max = ndigit[i];
-        }
-    }
+    int lines = 0;
 
-    for (i = max; i >= 0; --i) {
-        for (j = 0; j < 10; j++) {
-            printf(ndigit[j] > i ? COLUMN_CHAR : " ");
-            if (j != 9) { printf("\t"); }
-        }
+    for (i = 0; i <= max; ++i)
+        lines = (nwords[i] > lines) ? nwords[i] : lines;
+
+    for (; lines > 0; --lines) {
+        for (j = 1; j <= max; ++j)
+            printf((nwords[j] >= lines) ? "█\t" : " \t");
+
         printf("\n");
     }
 
-    for (j = 0; j < 10; j++) {
-        printf("%d\t", j);
-    }
+    for (i = 1; i <= max; ++i)
+        printf("%0d\t", i);
 
+    return 0;
 }
